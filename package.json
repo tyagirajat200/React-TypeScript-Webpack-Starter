@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "A starter template for React with Typescript using Webpack 5",
   "scripts": {
-    "start": "webpack serve --config webpack/webpack.config.js --env env=dev",
+    "client": "webpack serve --config webpack/webpack.config.js --env env=dev",
+    "server": "npx tsc -p tsconfig.server.json",
     "fdk": "cd freshteam && fdk run",
     "build": "webpack --config webpack/webpack.config.js --env env=prod",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "preinstall": "nvm 14"
+    "dev": "concurrently \"yarn client\" \"yarn server --watch\" \"yarn fdk\""
   },
   "keywords": [
     "React",
@@ -37,6 +38,7 @@
     "@typescript-eslint/eslint-plugin": "^4.15.0",
     "@typescript-eslint/parser": "^4.15.0",
     "babel-loader": "^8.2.2",
+    "concurrently": "^7.5.0",
     "copy-webpack-plugin": "^11.0.0",
     "css-loader": "^5.0.2",
     "eslint": "^7.19.0",
