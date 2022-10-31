@@ -34,6 +34,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, '..', './build'),
     filename: 'bundle.js',
+    clean : true
   },
   plugins: [
     new HtmlWebpackPlugin({

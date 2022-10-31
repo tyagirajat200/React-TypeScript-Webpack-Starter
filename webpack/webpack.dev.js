@@ -7,9 +7,13 @@ module.exports = {
   devServer: {
     hot: true,
     open: true,
+    port: 3000,
+    allowedHosts: 'all',
+    devMiddleware: {
+      writeToDisk: true
+    }
   },
   plugins: [
-    new ReactRefreshWebpackPlugin(),
     new webpack.DefinePlugin({
       'process.env.name': JSON.stringify('Vishwas'),
     }),
