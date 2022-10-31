@@ -60,6 +60,11 @@ module.exports = {
       filename: './style/[name].css',
       chunkFilename: './style/[id].css',
     }),
+    new CopyPlugin({
+      patterns: [{
+        from: './manifest.json', to: `./${outputDirectory}/`
+      }]
+    })
   ],
   optimization: {
     moduleIds: 'deterministic',

@@ -1,0 +1,36 @@
+{
+    "platform-version": "2.2",
+    "product": {
+        "freshteam": {
+            "location": {
+                "full_page_app": {
+                    "url": "index.html",
+                    "icon": "icon.svg"
+                }
+            },
+            "events": {
+                "onAppInstall": {
+                    "handler": "onAppInstallCallback"
+                },
+                "onExternalEvent": {
+                    "handler": "onExternalEventHandler"
+                },
+                "onApplicantUpdate": {
+                    "handler": "onApplicantUpdateCallback"
+                }
+            },
+            "functions": {
+                "getMettlAssessmentInfo": {
+                    "timeout": 10
+                }
+            }
+        }
+    },
+    "engines": {
+        "node": "14.20.1",
+        "fdk": "8.6.5"
+    },
+    "whitelisted-domains": [
+        "https://*.freshteam.com"
+    ]
+}
