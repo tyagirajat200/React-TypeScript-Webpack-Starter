@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const outputDirectory = 'freshteam';
+const outputDirectory = path.join(__dirname, '..', 'freshteam');
 
 module.exports = {
   entry: path.resolve(__dirname, '..', './client/index.tsx'),
@@ -21,7 +21,7 @@ module.exports = {
         ],
       },
       {
-        test: /\.(s(a|c)ss)$/,
+        test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
@@ -45,9 +45,9 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, '..', outputDirectory, 'app'),
-    filename: './scripts/[name].bundle.js',
-    chunkFilename: './scripts/[name].bundle.js',
+    path: path.join(outputDirectory),
+    filename: './app/scripts/[name].bundle.js',
+    chunkFilename: './app/scripts/[name].bundle.js',
     globalObject: 'this',
     clean: true
   },
@@ -57,13 +57,15 @@ module.exports = {
       title: 'Codejudge-Freshteam',
     }),
     new MiniCssExtractPlugin({
-      filename: './style/[name].css',
-      chunkFilename: './style/[id].css',
+      filename: './app/style/[name].css',
+      chunkFilename: './app/style/[id].css',
     }),
     new CopyPlugin({
-      patterns: [{
-        from: './manifest.json', to: `./${outputDirectory}/`
-      }]
+      patterns: [
+        { from: './manifest.json', to: outputDirectory },
+        { from: './assets', to: path.join(outputDirectory, 'app') },
+        { from: './config', to: path.join(outputDirectory, 'config') }
+      ]
     })
   ],
   optimization: {

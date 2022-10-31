@@ -1,0 +1,37 @@
+{
+    "email": {
+        "display_name": "Email ID",
+        "description": "Please enter your Email ID",
+        "type": "email",
+        "required": true
+    },
+    "domain_name": {
+        "display_name": "Domain Name",
+        "description": "Please enter your domain name",
+        "type": "domain",
+        "type_attributes": {
+            "product": "freshteam"
+        },
+        "required": true
+    },
+    "api_key": {
+        "display_name": "API Key",
+        "description": "Please enter your api_key",
+        "type": "api_key",
+        "secure": true,
+        "required": true,
+        "type_attributes": {
+            "product": "freshteam"
+        }
+    },
+    "codejudge_key": {
+        "display_name": "Codejduge API Key",
+        "description": "Please enter your codejduge api_key",
+        "type": "api_key",
+        "secure": true,
+        "required": true,
+        "type_attributes": {
+            "product": "codejudge"
+        }
+    }
+}
