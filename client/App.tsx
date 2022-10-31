@@ -3,7 +3,7 @@ import { Counter } from './Counter'
 export const App = () => {
   return (
     <>
-      <h1>Reactdddefe TfeypeScript Webpack Starter Template</h1>
+      <h1>Reactdddefe TnvvnvnvvnvfeypeScript Webpack Starter Template</h1>
       <Counter />
     </>
   )
