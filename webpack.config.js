@@ -2,10 +2,10 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const outputDirectory = path.join(__dirname, '..', 'freshteam/app');
+const outputDirectory = path.join(__dirname, 'app');
 
 module.exports = {
-  entry: path.resolve(__dirname, '..', './client/index.tsx'),
+  entry: path.resolve(__dirname, 'client/index.tsx'),
   resolve: {
     extensions: ['*', '.ts', '.tsx', '.js', '.jsx', '.json', '.scss']
   },
@@ -51,20 +51,29 @@ module.exports = {
     globalObject: 'this',
     clean: true
   },
+  devtool: 'source-map',
+  devServer: {
+    hot: false,
+    open: true,
+    port: 3000,
+    allowedHosts: 'all',
+    devMiddleware: {
+      writeToDisk: true
+    }
+  },
   plugins: [
+    new CopyPlugin({
+      patterns: [
+        { from: './icon.svg', to: outputDirectory }
+      ]
+    }),
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', './client/index.html')
+      template: path.resolve(__dirname, 'client/index.html'),
+      filename: path.join(outputDirectory, 'index.html')
     }),
     new MiniCssExtractPlugin({
       filename: './style/[name].css',
       chunkFilename: './style/[id].css',
-    }),
-    new CopyPlugin({
-      patterns: [
-        { from: './manifest.json', to: path.join(outputDirectory, '..') },
-        { from: './assets', to: outputDirectory },
-        { from: './config', to: path.join(outputDirectory, '..', 'config') }
-      ]
     })
   ],
   optimization: {

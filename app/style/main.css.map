@@ -1,0 +1,1 @@
+{"version":3,"file":"./style/main.css","mappings":";;;AAAA;EACE;AACF,C","sources":["webpack://react-typescript-webpack-starter/./client/inded.scss"],"sourcesContent":["body {\n  background-color: orange;\n}\n"],"names":[],"sourceRoot":""}

@@ -1,6 +1,6 @@
 exports = {
     onAppInstallCallback: function (payload: any) {
-        console.log("ovnAppInstddallCallback", payload);
+        console.log("ovnAppallCallback", payload);
     },
     onApplicantUpdateCallback: async function (payload: any) {
         console.log("onApplicantUpdateCallback", payload);

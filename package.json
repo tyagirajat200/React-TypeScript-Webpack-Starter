@@ -2,15 +2,20 @@
   "name": "react-typescript-webpack-starter",
   "version": "1.0.0",
   "description": "A starter template for React with Typescript using Webpack 5",
+  "fdkConfig": {
+    "frontendFramework": "react",
+    "configPath": "webpack.config.js"
+  },
   "scripts": {
-    "client": "webpack serve --config webpack/webpack.config.js --env env=dev",
+    "client": "webpack --config webpack.config.js",
     "server": "npx tsc -p tsconfig.server.json",
-    "fdk": "cd freshteam && fdk run",
-    "build": "webpack --config webpack/webpack.config.js --env env=prod",
+    "start": "concurrently \"webpack serve --config webpack.config.js\" \"yarn server --watch\" \"yarn fdk\"",
+    "fdk": "fdk run",
+    "build": "yarn client && yarn server",
     "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\"",
     "format": "prettier --write \"./src/**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"yarn client\" \"yarn server --watch\" \"yarn fdk\""
+    "dev": "concurrently \"yarn client\" \"yarn server --watch\""
   },
   "keywords": [
     "React",

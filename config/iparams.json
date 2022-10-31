@@ -6,7 +6,7 @@
         "required": true
     },
     "domain_name": {
-        "display_name": "Domain Name",
+        "display_name": "Domain Name fdfd",
         "description": "Please enter your domain name",
         "type": "domain",
         "type_attributes": {
